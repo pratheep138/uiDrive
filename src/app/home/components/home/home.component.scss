@@ -1,0 +1,31 @@
+.filter-section{
+    border: 1px solid lightgrey;
+}
+.filter-option{
+    cursor: pointer;
+}
+.heart-symbol{
+    font-size: 20px;
+    cursor: pointer;
+}
+.close-symbol{
+    font-size: 25px;
+    cursor: pointer;
+}
+.clearAll{
+    cursor: pointer;
+}
+.cd{
+    .imageProp{
+        height: 347.86px;
+        transition: width 2s, height 2s;
+    }
+    .imageProp:hover{
+        width: 400px;
+        height: 400px;
+        z-index: 1;
+        .image-desc{
+            visibility: hidden;
+        }
+    }
+}

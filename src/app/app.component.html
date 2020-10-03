@@ -1,0 +1,22 @@
+<div class="app-container">
+  <div class="header">
+    <div class="p-2 pl-5 float-left font-weight-bold">
+      <a class="title" href="javascript:void(0)" (click)="navigateTo('home')">UiDrive
+      </a>
+    </div>
+    <div class="p-2 pr-3 float-right font-weight-bold">
+      <ul class="nav-list transistion">
+        <li *ngIf="!isLoggedIn"><a href="javascript:void(0)" (click)="login()"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        <li *ngIf="isLoggedIn"><a href="javascript:void(0)" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="body-container m-3">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <p class="pt-3"><i class="far fa-copyright"></i> 2020 UiDrive. All rights reserved.</p>
+
+</div>
+  
+</div>

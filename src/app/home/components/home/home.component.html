@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-md-3 mb-4">
+
+    <!-- Section: Sidebar -->
+    <section class="filter-section">
+      <!-- Section: Categories -->
+
+      <!-- Section: Filters -->
+      <section class="filters">
+        <div class="row m-2 border-bottom">
+          <div class="col-6">
+            <h6 class="p-2 text-left">FILTERS</h6>
+          </div>
+          <div class="col-6">
+            <h6 class="p-2 text-right clearAll" (click)="clearFilter()">CLEAR ALL X</h6>
+          </div>
+        </div>
+
+        <!-- Section: Price -->
+        <section *ngIf="showFilters" class="text-left ml-2 mb-4" filter="price">
+          <h6 class="font-weight-bold mb-3">Price</h6>
+
+          <div class="form-check pl-5 mb-3" *ngFor="let price of priceList">
+            <input type="radio" class="filter-option form-check-input" id="{{price.value}}" name="materialExampleRadios" (click)="filterItems(price.value)">
+            <label class="form-check-label small text-uppercase card-link-secondary">{{price.priceTage}}</label>
+          </div>
+        </section>
+        <!-- Section: Price -->
+
+      </section>
+      <!-- Section: Filters -->
+
+    </section>
+    <!-- Section: Sidebar -->
+
+  </div>
+  <div *ngIf="showGrid" class="col-md-9 mb-4">
+    <section class="text-center">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+  
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-8 mb-4" *ngFor="let product of filteredData; let i = index">
+  
+          <!--Card-->
+          <div class="card cd">
+  
+            <!--Card image-->
+            <div class="view overlay">
+              <span id="{{'icon'+i}}" class="mr-2 float-right heart-symbol" (click)="changeColor(i,$event)">&hearts;</span>
+              <span id="{{'close'+i}}" class="mr-2 float-right close-symbol" (click)="clearEv(i)">X</span>
+              <img src="{{product?.imageUrl}}" class="card-img-top imageProp" alt="" (mouseenter)="mouseEnter(i)" (mouseleave)="mouseLeave(i)">
+              <a>
+                <div class="mask rgba-white-slight waves-effect waves-light"></div>
+              </a>
+            </div>
+            <!--Card image-->
+  
+            <!--Card content-->
+            <div id="{{'desc'+i}}" class="card-body text-center image-desc">
+              <!--Category & Title-->
+              <a href="javascript:void(0)" class="grey-text" (click)="navigateTo(product.id)">
+                <h5>{{product.name}}</h5>
+              </a>
+              <h5>
+                <strong>
+                  <p href="javascript:void(0)" class="dark-grey-text">{{product.description}}</p>
+                </strong>
+              </h5>
+  
+              <h4 class="font-weight-bold blue-text">
+                <strong>{{product.price}} {{'$'}}</strong>
+              </h4>
+  
+            </div>
+            <!--Card content-->
+
+            <div class="row m-2">
+              <button id="{{'butn'+i}}" class="btn btn-primary ml-2" (click)="viewGallary(i,$event)">VIEW GALLARY</button>
+              <button id="{{'butnC'+i}}" class="btn btn-secondary ml-2">ADD TO CART</button>
+            </div>
+  
+          </div>
+          <!--Card-->
+  
+        </div>
+        <!--Grid column-->
+
+        <div *ngIf="products?.length<=0">
+          <h4>No Items Available</h4>
+        </div>
+  
+      </div>
+      <!--Grid row-->
+  
+    </section>
+  </div> 
+</div>
